@@ -11,7 +11,7 @@
              
     <Application.Resources>
         <SolidColorBrush x:Key="PrimaryText">#fcfcfc</SolidColorBrush>
-        <SolidColorBrush x:Key="PrimaryBackground">#ECE6DE</SolidColorBrush>
+        <SolidColorBrush x:Key="PrimaryBackground">#f0e1ce</SolidColorBrush>
         
         <LinearGradientBrush x:Key="PrimaryBackgroundGradient" StartPoint="0%, 100%" EndPoint="100%,0%">
             <GradientStop Offset="0" Color="#cc6e31"></GradientStop>
@@ -20,7 +20,7 @@
         
         <SolidColorBrush x:Key="SidebarShadow">#d1763b </SolidColorBrush>
         <SolidColorBrush x:Key="PrimaryButtonsBackground">#f58a45</SolidColorBrush>
-        <SolidColorBrush x:Key="PrimaryHoverBackground">#fcfcfc</SolidColorBrush>
+        <SolidColorBrush x:Key="PrimaryHoverBackground">#ff9c5a</SolidColorBrush>
         <SolidColorBrush x:Key="PrimaryHoverForeground">White</SolidColorBrush>
     </Application.Resources>
 </Application>

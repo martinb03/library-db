@@ -11,11 +11,11 @@
        
             <Border Padding="15" Background="{DynamicResource PrimaryBackgroundGradient}">
                 <Grid RowDefinitions="*,Auto">
-                    <StackPanel Spacing="12">
+                    <StackPanel Spacing="15">
                         <Button Content="Books" HorizontalAlignment="Stretch"></Button>
                         <Button Content="Borrowings" HorizontalAlignment="Stretch"></Button>
                         <Button Content="Penalties" HorizontalAlignment="Stretch"></Button>
-                        <Button Content="Books" HorizontalAlignment="Stretch"></Button>
+                        <Button Content="Customers" HorizontalAlignment="Stretch"></Button>
                         <Button Content="Books" HorizontalAlignment="Stretch"></Button>
                         <Button Content="Books" HorizontalAlignment="Stretch"></Button>
                     </StackPanel>

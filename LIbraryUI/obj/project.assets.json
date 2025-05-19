@@ -1426,24 +1426,28 @@
     ]
   },
   "packageFolders": {
-    "/home/martin/.nuget/packages/": {}
+    "C:\\Users\\Martin Boykin\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/martin/Documents/riderProjects/LIbraryUI/LIbraryUI/LIbraryUI.csproj",
+      "projectUniqueName": "C:\\Users\\Martin Boykin\\RiderProjects\\library-db\\LIbraryUI\\LIbraryUI.csproj",
       "projectName": "LIbraryUI",
-      "projectPath": "/home/martin/Documents/riderProjects/LIbraryUI/LIbraryUI/LIbraryUI.csproj",
-      "packagesPath": "/home/martin/.nuget/packages/",
-      "outputPath": "/home/martin/Documents/riderProjects/LIbraryUI/LIbraryUI/obj/",
+      "projectPath": "C:\\Users\\Martin Boykin\\RiderProjects\\library-db\\LIbraryUI\\LIbraryUI.csproj",
+      "packagesPath": "C:\\Users\\Martin Boykin\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Martin Boykin\\RiderProjects\\library-db\\LIbraryUI\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/home/martin/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\Martin Boykin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net9.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -1462,7 +1466,7 @@
         "auditLevel": "low",
         "auditMode": "direct"
       },
-      "SdkAnalysisLevel": "9.0.200"
+      "SdkAnalysisLevel": "9.0.100"
     },
     "frameworks": {
       "net9.0": {
@@ -1505,7 +1509,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/home/martin/.dotnet/sdk/9.0.200/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.101/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

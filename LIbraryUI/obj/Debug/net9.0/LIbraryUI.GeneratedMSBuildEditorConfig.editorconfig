@@ -15,17 +15,17 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = LIbraryUI
-build_property.ProjectDir = /home/martin/Documents/riderProjects/LIbraryUI/LIbraryUI/
+build_property.ProjectDir = C:\Users\Martin Boykin\RiderProjects\library-db\LIbraryUI\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.EffectiveAnalysisLevelStyle = 9.0
 build_property.EnableCodeStyleSeverity = 
 
-[/home/martin/Documents/riderProjects/LIbraryUI/LIbraryUI/App.axaml]
+[C:/Users/Martin Boykin/RiderProjects/library-db/LIbraryUI/App.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
-[/home/martin/Documents/riderProjects/LIbraryUI/LIbraryUI/MainWindow.axaml]
+[C:/Users/Martin Boykin/RiderProjects/library-db/LIbraryUI/MainWindow.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
-[/home/martin/Documents/riderProjects/LIbraryUI/LIbraryUI/Styles/AppDefaultStyles.axaml]
+[C:/Users/Martin Boykin/RiderProjects/library-db/LIbraryUI/Styles/AppDefaultStyles.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
