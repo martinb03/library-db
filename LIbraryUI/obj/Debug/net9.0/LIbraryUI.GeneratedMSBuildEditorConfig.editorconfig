@@ -6,6 +6,11 @@ build_property.AvaloniaNameGeneratorFilterByPath = *
 build_property.AvaloniaNameGeneratorFilterByNamespace = *
 build_property.AvaloniaNameGeneratorViewFileNamingStrategy = NamespaceAndClassName
 build_property.AvaloniaNameGeneratorAttachDevTools = true
+build_property.MvvmToolkitEnableINotifyPropertyChangingSupport = true
+build_property._MvvmToolkitIsUsingWindowsRuntimePack = false
+build_property.CsWinRTComponent = 
+build_property.CsWinRTAotOptimizerEnabled = 
+build_property.CsWinRTAotWarningLevel = 
 build_property.TargetFramework = net9.0
 build_property.TargetPlatformMinVersion = 
 build_property.UsingMicrosoftNETSdkWeb = 
@@ -24,8 +29,23 @@ build_property.EnableCodeStyleSeverity =
 [C:/Users/Martin Boykin/RiderProjects/library-db/LIbraryUI/App.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
-[C:/Users/Martin Boykin/RiderProjects/library-db/LIbraryUI/MainWindow.axaml]
+[C:/Users/Martin Boykin/RiderProjects/library-db/LIbraryUI/Styles/AppDefaultStyles.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
-[C:/Users/Martin Boykin/RiderProjects/library-db/LIbraryUI/Styles/AppDefaultStyles.axaml]
+[C:/Users/Martin Boykin/RiderProjects/library-db/LIbraryUI/Views/BooksPageView.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
+[C:/Users/Martin Boykin/RiderProjects/library-db/LIbraryUI/Views/BorrowingsPageView.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
+[C:/Users/Martin Boykin/RiderProjects/library-db/LIbraryUI/Views/CustomersPageView.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
+[C:/Users/Martin Boykin/RiderProjects/library-db/LIbraryUI/Views/MainView.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
+[C:/Users/Martin Boykin/RiderProjects/library-db/LIbraryUI/Views/PenaltiesPageView.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
+[C:/Users/Martin Boykin/RiderProjects/library-db/LIbraryUI/Views/StaffPageView.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml

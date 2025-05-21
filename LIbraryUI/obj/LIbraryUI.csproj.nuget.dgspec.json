@@ -52,6 +52,10 @@
               "target": "Package",
               "version": "[11.2.1, )"
             },
+            "Avalonia.Controls.DataGrid": {
+              "target": "Package",
+              "version": "[11.2.1, )"
+            },
             "Avalonia.Desktop": {
               "target": "Package",
               "version": "[11.2.1, )"
@@ -67,6 +71,10 @@
             "Avalonia.Themes.Fluent": {
               "target": "Package",
               "version": "[11.2.1, )"
+            },
+            "CommunityToolkit.Mvvm": {
+              "target": "Package",
+              "version": "[8.4.0, )"
             }
           },
           "imports": [

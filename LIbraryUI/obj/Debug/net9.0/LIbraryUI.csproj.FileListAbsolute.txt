@@ -131,3 +131,4 @@ C:\Users\Martin Boykin\RiderProjects\library-db\LIbraryUI\obj\Debug\net9.0\refin
 C:\Users\Martin Boykin\RiderProjects\library-db\LIbraryUI\obj\Debug\net9.0\LIbraryUI.csproj.Up2Date
 C:\Users\Martin Boykin\RiderProjects\library-db\LIbraryUI\obj\Debug\net9.0\LIbraryUI.genruntimeconfig.cache
 C:\Users\Martin Boykin\RiderProjects\library-db\LIbraryUI\obj\Debug\net9.0\ref\LIbraryUI.dll
+C:\Users\Martin Boykin\RiderProjects\library-db\LIbraryUI\bin\Debug\net9.0\CommunityToolkit.Mvvm.dll

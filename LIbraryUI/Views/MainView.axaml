@@ -1,0 +1,36 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="1280" d:DesignHeight="720"
+        Width="1280"
+        Height="720"
+        x:Class="LIbraryUI.MainView"
+        xmlns:vm="clr-namespace:LIbraryUI.ViewModels"
+        xmlns:view="clr-namespace:LIbraryUI.Views"
+        x:DataType="vm:MainViewModel"
+        Title="LibraryUI">
+    
+    <Design.DataContext><vm:MainViewModel></vm:MainViewModel></Design.DataContext>
+    
+    <Grid Background="{DynamicResource PrimaryBackground}" ColumnDefinitions="275, *">
+        
+        <ContentControl Grid.Column="1" Content="{Binding CurrentPage}"></ContentControl>
+        
+        <Border Padding="20" Background="{DynamicResource PrimaryBackgroundGradient}">
+                <Grid RowDefinitions="*,Auto">
+                    <StackPanel Spacing="20">
+                       <Image Source="/Assets/Images/Library.png"></Image>
+                        <Button Content="Books" HorizontalAlignment="Stretch" Classes.active="{Binding BooksPageIsActive}" Command="{Binding GoToBooksCommand}"></Button>
+                        <Button Content="Borrowings" HorizontalAlignment="Stretch" Classes.active="{Binding BorrowingsPageIsActive}" Command="{Binding GoToBorrowingsCommand}"></Button>
+                        <Button Content="Customers" HorizontalAlignment="Stretch" Classes.active="{Binding CustomersPageIsActive}" Command="{Binding GoToCustomersCommand}"></Button>
+                        <Button Content="Penalties" HorizontalAlignment="Stretch" Classes.active="{Binding PenaltiesPageIsActive}" Command="{Binding GoToPenaltiesCommand}"></Button>
+                        
+                        
+                    </StackPanel>
+                    <Button Grid.Row="1" Content="Staff" HorizontalAlignment="Stretch" Classes.active="{Binding StaffPageIsActive}" Command="{Binding GoToStaffCommand}"></Button>
+                </Grid>
+            </Border>
+            
+        </Grid>    
+</Window>

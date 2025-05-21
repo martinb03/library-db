@@ -10,11 +10,18 @@
     <!-- Add Styles Here -->
     <Style Selector="Button">
         <Setter Property="Foreground" Value="{DynamicResource PrimaryText}"></Setter>
-        <Setter Property="FontSize" Value="20"></Setter>
+        <Setter Property="FontSize" Value="22"></Setter>
         <Setter Property="Background" Value="{DynamicResource PrimaryButtonsBackground}"></Setter>
+        <Setter Property="HorizontalContentAlignment" Value="Center"></Setter>
+        <Setter Property="VerticalContentAlignment" Value="Center"></Setter>
+        <Setter Property="Height" Value="50"></Setter>
     </Style>
     <Style Selector="Button:pointerover /template/ ContentPresenter">
         <Setter Property="Foreground" Value="{DynamicResource PrimaryHoverForeground}"></Setter>
         <Setter Property="Background" Value="{DynamicResource PrimaryHoverBackground}"></Setter>
+    </Style>
+    
+    <Style Selector="Button.active /template/ ContentPresenter">
+        <Setter Property="Background" Value="{DynamicResource PrimaryActiveBackground}"></Setter>
     </Style>
 </Styles>

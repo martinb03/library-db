@@ -4,8 +4,14 @@
     <option name="projectPerEditor">
       <map>
         <entry key="LIbraryUI/App.axaml" value="LIbraryUI/LIbraryUI.csproj" />
+        <entry key="LIbraryUI/BooksWindow.axaml" value="LIbraryUI/LIbraryUI.csproj" />
         <entry key="LIbraryUI/MainWindow.axaml" value="LIbraryUI/LIbraryUI.csproj" />
         <entry key="LIbraryUI/Styles/AppDefaultStyles.axaml" value="LIbraryUI/LIbraryUI.csproj" />
+        <entry key="LIbraryUI/Views/BooksPageView.axaml" value="LIbraryUI/LIbraryUI.csproj" />
+        <entry key="LIbraryUI/Views/BorrowingsPageView.axaml" value="LIbraryUI/LIbraryUI.csproj" />
+        <entry key="LIbraryUI/Views/CustomersPageView.axaml" value="LIbraryUI/LIbraryUI.csproj" />
+        <entry key="LIbraryUI/Views/PenaltiesPageView.axaml" value="LIbraryUI/LIbraryUI.csproj" />
+        <entry key="LIbraryUI/Views/StaffPageView.axaml" value="LIbraryUI/LIbraryUI.csproj" />
       </map>
     </option>
   </component>

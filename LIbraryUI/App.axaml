@@ -1,9 +1,14 @@
 <Application xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              x:Class="LIbraryUI.App"
+             xmlns:local="clr-namespace:LIbraryUI"
              RequestedThemeVariant="Default">
              <!-- "Default" ThemeVariant follows system theme variant. "Dark" or "Light" are other available options. -->
 
+             <Application.DataTemplates>
+                 <local:ViewLocator></local:ViewLocator>
+             </Application.DataTemplates>
+             
     <Application.Styles>
         <FluentTheme />
         <StyleInclude Source="Styles/AppDefaultStyles.axaml"></StyleInclude>
@@ -20,6 +25,8 @@
         
         <SolidColorBrush x:Key="SidebarShadow">#d1763b </SolidColorBrush>
         <SolidColorBrush x:Key="PrimaryButtonsBackground">#f58a45</SolidColorBrush>
+        
+        <SolidColorBrush x:Key="PrimaryActiveBackground">#ffbb5f</SolidColorBrush>
         <SolidColorBrush x:Key="PrimaryHoverBackground">#ff9c5a</SolidColorBrush>
         <SolidColorBrush x:Key="PrimaryHoverForeground">White</SolidColorBrush>
     </Application.Resources>
