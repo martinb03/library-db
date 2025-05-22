@@ -13,7 +13,7 @@
     
     <Design.DataContext><vm:MainViewModel></vm:MainViewModel></Design.DataContext>
     
-    <Grid Background="{DynamicResource PrimaryBackground}" ColumnDefinitions="275, *">
+    <Grid Background="{DynamicResource PrimaryBackground}" ColumnDefinitions="280, *">
         
         <ContentControl Grid.Column="1" Content="{Binding CurrentPage}"></ContentControl>
         

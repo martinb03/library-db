@@ -11,6 +11,9 @@
              
     <Application.Styles>
         <FluentTheme />
+        <StyleInclude>
+            <StyleInclude.Source>avares://Avalonia.Controls.DataGrid/Themes/Fluent.xaml</StyleInclude.Source>
+        </StyleInclude>
         <StyleInclude Source="Styles/AppDefaultStyles.axaml"></StyleInclude>
     </Application.Styles>
              
@@ -29,5 +32,7 @@
         <SolidColorBrush x:Key="PrimaryActiveBackground">#ffbb5f</SolidColorBrush>
         <SolidColorBrush x:Key="PrimaryHoverBackground">#ff9c5a</SolidColorBrush>
         <SolidColorBrush x:Key="PrimaryHoverForeground">White</SolidColorBrush>
+        
+        <SolidColorBrush x:Key="PrimaryLabelForeground">#1a130d</SolidColorBrush>
     </Application.Resources>
 </Application>

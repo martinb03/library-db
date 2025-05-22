@@ -1,6 +1,12 @@
-﻿namespace LIbraryUI.ViewModels;
+﻿using CommunityToolkit.Mvvm.Input;
+
+namespace LIbraryUI.ViewModels;
 
 public partial class BooksPageViewModel : ViewModelsBase
 {
-    public string Test { get; set; } = "Books";
+    [RelayCommand]
+    private void FetchBooks()
+    {
+       
+    }
 }
