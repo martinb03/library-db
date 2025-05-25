@@ -1,6 +1,10 @@
-﻿namespace LIbraryUI.ViewModels;
+﻿using LIbraryUI.Data;
+namespace LIbraryUI.ViewModels;
 
-public partial class BorrowingsPageViewModel : ViewModelsBase
+public partial class BorrowingsPageViewModel : PageViewModel
 {
-    public string Test { get; set; } = "Borrowings";
+    public BorrowingsPageViewModel()
+    {
+        PageName = ApplicationPageNames.Borrowings;
+    }
 }

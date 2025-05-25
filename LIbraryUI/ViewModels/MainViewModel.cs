@@ -1,6 +1,8 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using LIbraryUI.Data;
 using LIbraryUI.Views;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace LIbraryUI.ViewModels;
 
@@ -9,58 +11,45 @@ public partial class MainViewModel : ViewModelsBase
     private const string buttonActiveClass = "active";
     
     [ObservableProperty]
-    [NotifyPropertyChangedFor(nameof(BooksPageIsActive))]
-    [NotifyPropertyChangedFor(nameof(BorrowingsPageIsActive))]
     [NotifyPropertyChangedFor(nameof(CustomersPageIsActive))]
-    [NotifyPropertyChangedFor(nameof(PenaltiesPageIsActive))]
+    [NotifyPropertyChangedFor(nameof(BorrowingsPageIsActive))]
+    [NotifyPropertyChangedFor(nameof(BooksPageIsActive))]
     [NotifyPropertyChangedFor(nameof(StaffPageIsActive))]
-    private ViewModelsBase _currentPage;
+    private PageViewModel _currentPage;
+    
+    public bool CustomersPageIsActive => CurrentPage.PageName == ApplicationPageNames.Customers;
+    public bool BorrowingsPageIsActive => CurrentPage.PageName == ApplicationPageNames.Borrowings;
+    public bool BooksPageIsActive => CurrentPage.PageName == ApplicationPageNames.Books;
+    public bool StaffPageIsActive => CurrentPage.PageName == ApplicationPageNames.Staff;
     
     
-    public bool BooksPageIsActive => CurrentPage == _booksPage;
-    public bool BorrowingsPageIsActive => CurrentPage == _borrowingsPage;
-    public bool CustomersPageIsActive => CurrentPage == _customersPage;
-    public bool PenaltiesPageIsActive => CurrentPage == _penaltiesPage;
-    public bool StaffPageIsActive => CurrentPage == _staffPage;
-    
-    private readonly BooksPageViewModel _booksPage = new ();
-    private readonly BorrowingsPageViewModel _borrowingsPage = new ();
-    private readonly CustomersPageViewModel _customersPage = new ();
-    private readonly PenaltiesPageViewModel _penaltiesPage = new ();
-    private readonly StaffPageViewModel _staffPage = new ();
-
     public MainViewModel()
     {
-        CurrentPage = _booksPage;
+        CurrentPage = App.ServiceProvider.GetRequiredService<CustomersPageViewModel>();;
     }
 
     [RelayCommand]
     private void GoToBooks()
     {
-        CurrentPage = _booksPage;
+        CurrentPage = App.ServiceProvider.GetRequiredService<BooksPageViewModel>();
     }
     
     [RelayCommand]
     private void GoToBorrowings()
     {
-        CurrentPage = _borrowingsPage;
+        CurrentPage = App.ServiceProvider.GetRequiredService<BorrowingsPageViewModel>();
     }
     
     [RelayCommand]
     private void GoToCustomers()
     {
-        CurrentPage = _customersPage;
+        CurrentPage = App.ServiceProvider.GetRequiredService<CustomersPageViewModel>();
     }
     
-    [RelayCommand]
-    private void GoToPenalties()
-    {
-        CurrentPage = _penaltiesPage;
-    }
     
     [RelayCommand]
     private void GoToStaff()
     {
-        CurrentPage = _staffPage;
+        CurrentPage = App.ServiceProvider.GetRequiredService<StaffPageViewModel>();
     }
 }

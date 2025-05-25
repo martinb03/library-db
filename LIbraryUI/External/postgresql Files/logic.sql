@@ -28,6 +28,8 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
+
+
 CREATE TRIGGER trg_set_book_status_available
 AFTER UPDATE ON borrowings
 FOR EACH ROW
@@ -36,3 +38,30 @@ EXECUTE FUNCTION set_status_available();
 
 
 
+
+CREATE OR REPLACE FUNCTION set_unusable_damaged()
+RETURNS TRIGGER AS $$
+DECLARE
+  unusable_id INT;
+  damaged_id  INT;
+BEGIN
+  -- look up the IDs for clarity rather than hard-coding
+  SELECT condition_id INTO unusable_id
+    FROM book_condition WHERE name = 'unusable';
+  SELECT status_id INTO damaged_id
+    FROM book_status    WHERE name = 'damaged';
+
+  IF NEW.condition_id = unusable_id THEN
+    UPDATE books
+    SET status_id = damaged_id
+    WHERE book_id = NEW.book_id;
+  END IF;
+
+  RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+
+CREATE TRIGGER trg_set_unusable_damaged
+AFTER UPDATE OF condition_id ON books
+FOR EACH ROW
+EXECUTE FUNCTION set_unusable_damaged();

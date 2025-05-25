@@ -1,6 +1,10 @@
-﻿namespace LIbraryUI.ViewModels;
+﻿using LIbraryUI.Data;
+namespace LIbraryUI.ViewModels;
 
-public class CustomersPageViewModel : ViewModelsBase
+public class CustomersPageViewModel : PageViewModel
 {
-    
+    public CustomersPageViewModel()
+    {
+        PageName = ApplicationPageNames.Customers;
+    }
 }
