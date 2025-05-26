@@ -2,8 +2,10 @@ INSERT INTO book_status (name) VALUES
 ('available'),
 ('borrowed'),
 ('lost'),
-('damaged'),
-('reserved');
+('damaged');
+
+SELECT * FROM book_status;
+
 
 INSERT INTO book_condition (name) VALUES
 ('new'),
