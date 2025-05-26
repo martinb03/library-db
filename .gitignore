@@ -1,0 +1,11 @@
+﻿.idea/
+GUI_requirements.txt
+LIbraryUI.sln.DotSettings.user
+LIbraryUI/bin/
+LIbraryUI/obj
+.env
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+*.log
