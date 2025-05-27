@@ -2,12 +2,73 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             mc:Ignorable="d" d:DesignWidth="1320" d:DesignHeight="900"
+             Width="1320"
+             Height="900"
+             Background="{DynamicResource PrimaryBackground}"
              xmlns:vm="clr-namespace:LIbraryUI.ViewModels"
              x:DataType="vm:BorrowingsPageViewModel"
              x:Class="LIbraryUI.Views.BorrowingsPageView">
+    
     <Design.DataContext><vm:BorrowingsPageViewModel></vm:BorrowingsPageViewModel></Design.DataContext>
     
-    Welcome to Borrowings Page!
+   <Grid RowDefinitions="*">
+        <Border Padding="20" >
+            <Grid RowDefinitions="Auto,20,Auto,20,Auto,10,Auto,*,Auto" >
+                
+                <Label Content="Borrowings" FontSize="40" FontWeight="Bold"></Label>
+                <Grid Grid.Row="2" ColumnDefinitions="Auto,10,Auto">
+                    <Label FontSize="20" Content="Customer:" ></Label>
+                    <TextBlock  Grid.Column="2" FontSize="25" FontWeight="Bold" Text="{Binding CustomerName}"></TextBlock>
+                </Grid>
+               
+                
+                <Grid Grid.Row="4" ColumnDefinitions="Auto,10,155,10,180,*,Auto,Auto,10,Auto,Auto" >
+                    <Label Grid.Column="0" Content="Search by: " ></Label>
+                    <ComboBox Grid.Column="2" Width="155" ItemsSource="{Binding SearchCriteriaOptions}" 
+                              SelectedItem="{Binding SelectedSearchCriteria, Mode=TwoWay}"></ComboBox>
+                    <TextBox Grid.Column="4"  Text="{Binding SearchText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                        
+                    <CheckBox Grid.Column="6"  BorderBrush="Black" IsChecked="{Binding ShowActiveOnly, Mode=TwoWay}"></CheckBox>
+                    <Label Grid.Column="7" Content="Active only "></Label>
+                        
+                    <CheckBox Grid.Column="9" BorderBrush="Black"  IsChecked="{Binding ShowOverdueOnly}"></CheckBox>
+                    <Label Grid.Column="10"  Content="Overdue"></Label>
+                </Grid>
+                
+                <DataGrid x:Name="BorrowingsGrid" 
+                          CanUserResizeColumns="True"  IsReadOnly="True" ColumnWidth="160" Grid.Row="6"
+                          Background="#d0c0ac" Foreground="Black" FontWeight="Bold" 
+                          HorizontalGridLinesBrush="#302d28" VerticalGridLinesBrush="#302d28" GridLinesVisibility="All"
+                          ItemsSource="{Binding Borrowings}"
+                          >
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Customer"
+                                            Binding="{Binding Customer}"/>
+                        <DataGridTextColumn Header="Title" 
+                                            Binding="{Binding BookTitle}"/>
+                        <DataGridTextColumn Header="Condition"
+                                            Binding="{Binding Condition}"/>
+                        <DataGridTextColumn Header="Borrow Date"
+                                            Binding="{Binding BorrowDate}"/>
+                        <DataGridTextColumn Header="Due Date"
+                                            Binding="{Binding DueDate}"/>
+                        <DataGridTextColumn Header="Return Date"
+                                            Binding="{Binding ReturnDate}"/>
+                        <DataGridTextColumn Header="Due Date"
+                                            Binding="{Binding DueDate}"/>
+                        <DataGridTextColumn Header="Days Overdue"
+                                            Binding="{Binding DaysOverdue}"/>
+                        
+                    </DataGrid.Columns>
+                </DataGrid>
+                <Grid Grid.Row="8" ColumnDefinitions="*,Auto,10,auto,10,Auto">
+                    <Button Grid.Column="1" Content="Add"></Button>
+                    <Button Grid.Column="3" Content="Edit"></Button>
+                    <Button Grid.Column="5" Content="Delete"></Button>
+                </Grid>
+            </Grid>
+        </Border>
+    </Grid>
     
 </UserControl>

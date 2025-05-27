@@ -2,46 +2,46 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             mc:Ignorable="d" d:DesignWidth="1000" d:DesignHeight="720"
-             Width="1000"
-             Height="720"
+             mc:Ignorable="d" d:DesignWidth="1320" d:DesignHeight="900"
+             Width="1320"
+             Height="900"
              Background="{DynamicResource PrimaryBackground}"
              xmlns:vm="clr-namespace:LIbraryUI.ViewModels"
              x:DataType="vm:BooksPageViewModel"
              x:Class="LIbraryUI.Views.BooksPageView">
     
-            
-    
     <Design.DataContext><vm:BooksPageViewModel></vm:BooksPageViewModel></Design.DataContext>
-    
-    
     
     <Grid RowDefinitions="*">
         <Border Padding="20" >
-            <Grid RowDefinitions="Auto,Auto,*,Auto" >
+            <Grid RowDefinitions="Auto,Auto,15,Auto,*,Auto" >
                 
                 <Label Content="Books" FontSize="40" FontWeight="Bold"></Label>
-                <Border Grid.Row="1" Padding="40">
-                    <Grid ColumnDefinitions="Auto,10,180,50,Auto,30,Auto,10,180" RowDefinitions="Auto,10,Auto">
+               
+                    <Grid Grid.Row="1" ColumnDefinitions="Auto,10,90,10,180,*,Auto,0,Auto,10,Auto,10,Auto" >
                         <Label Grid.Column="0" Content="Search by: " ></Label>
                         
-                        <ComboBox Grid.Column="2" ItemsSource="{Binding SearchCriteriaOptions}" 
+                        <ComboBox Grid.Column="2" Width="90" ItemsSource="{Binding SearchCriteriaOptions}" 
                                   SelectedItem="{Binding SelectedSearchCriteria, Mode=TwoWay}"></ComboBox>
-                        <TextBox Grid.Column="2" Grid.Row="2" Text="{Binding SearchText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                        <TextBox Grid.Column="4"  Text="{Binding SearchText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBox>
                         
-                        <Label Grid.Column="4" Content="Filter by: "></Label>
-                        <Label Grid.Column="6" Content="Available: "></Label>
                         
-                        <CheckBox Grid.Column="8" IsChecked="{Binding ShowOnlyAvailable, Mode=TwoWay}" ></CheckBox>
+                        <Label Grid.Column="6" Content="Available only: "></Label>
                         
-                        <Label Grid.Column="6" Grid.Row="2" Content="Condition:"></Label>
+                        <CheckBox Grid.Column="8" BorderBrush="Black" IsChecked="{Binding ShowOnlyAvailable, Mode=TwoWay}" ></CheckBox>
                         
-                        <ComboBox Grid.Column="8" Grid.Row="2" ItemsSource="{Binding ConditionOptions}" 
+                        <Label Grid.Column="10"  Content="Condition:"></Label>
+                        
+                        <ComboBox Grid.Column="12"  ItemsSource="{Binding ConditionOptions}" 
                                   SelectedItem="{Binding SelectedCondition, Mode=TwoWay}"></ComboBox>
                     </Grid>
-                </Border>
-                <DataGrid CanUserResizeColumns="True" IsReadOnly="True" ColumnWidth="150" Grid.Row="2" Foreground="Black" ItemsSource="{Binding Books}" AutoGenerateColumns="True"></DataGrid>
-                <Grid Grid.Row="3" ColumnDefinitions="*,Auto,10,auto,10,Auto">
+                
+                <DataGrid CanUserResizeColumns="True"  IsReadOnly="True" ColumnWidth="213" Grid.Row="3"
+                          Background="#d0c0ac" Foreground="Black" 
+                          HorizontalGridLinesBrush="#302d28" VerticalGridLinesBrush="#302d28" GridLinesVisibility="All" FontWeight="Bold" 
+                          ItemsSource="{Binding Books}" AutoGenerateColumns="True"
+                          ></DataGrid>
+                <Grid Grid.Row="5" ColumnDefinitions="*,Auto,10,auto,10,Auto">
                     <Button Grid.Column="1" Content="Add"></Button>
                     <Button Grid.Column="3" Content="Edit"></Button>
                     <Button Grid.Column="5" Content="Delete"></Button>

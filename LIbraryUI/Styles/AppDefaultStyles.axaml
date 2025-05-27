@@ -42,6 +42,14 @@
         <Setter Property="Width" Value="150"></Setter>
         <Setter Property="FontSize" Value="20"> </Setter>
         <Setter Property="Height" Value="40"></Setter>
-        
+    </Style>
+    <Style Selector="views|BorrowingsPageView Button">
+        <Setter Property="Background" Value="#2f2f2f"></Setter>
+        <Setter Property="Foreground" Value="White"></Setter>
+        <Setter Property="BorderThickness" Value="3"></Setter>
+        <Setter Property="BorderBrush" Value="#6f4f00"></Setter>
+        <Setter Property="Width" Value="150"></Setter>
+        <Setter Property="FontSize" Value="20"> </Setter>
+        <Setter Property="Height" Value="40"></Setter>
     </Style>
 </Styles>

@@ -2,11 +2,15 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             mc:Ignorable="d" d:DesignWidth="1320" d:DesignHeight="900"
+             Width="1320"
+             Height="900"
+             Background="{DynamicResource PrimaryBackground}"
              xmlns:vm="clr-namespace:LIbraryUI.ViewModels"
              x:DataType="vm:CustomersPageViewModel"
              x:Class="LIbraryUI.Views.CustomersPageView">
     
     <Design.DataContext><vm:CustomersPageViewModel></vm:CustomersPageViewModel></Design.DataContext>
-    Welcome to Customers Page!
+    
+    
 </UserControl>
