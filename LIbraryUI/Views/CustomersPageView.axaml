@@ -7,10 +7,79 @@
              Height="900"
              Background="{DynamicResource PrimaryBackground}"
              xmlns:vm="clr-namespace:LIbraryUI.ViewModels"
+             xmlns:conv="clr-namespace:LIbraryUI.Converters;assembly=LIbraryUI"
+             xmlns:dg="clr-namespace:Avalonia.Controls;assembly=Avalonia.Controls.DataGrid"
              x:DataType="vm:CustomersPageViewModel"
              x:Class="LIbraryUI.Views.CustomersPageView">
     
-    <Design.DataContext><vm:CustomersPageViewModel></vm:CustomersPageViewModel></Design.DataContext>
+    <UserControl.Resources>
+         <conv:NullToBoolConverter x:Key="NullToBool"/>
+    </UserControl.Resources>
     
+    <Design.DataContext>
+        <vm:CustomersPageViewModel></vm:CustomersPageViewModel>
+    </Design.DataContext>
+    
+    <Grid RowDefinitions="*">
+        <Border Padding="20" >
+            <Grid RowDefinitions="Auto,10,Auto,15,Auto,Auto,*,Auto" >
+                
+                <Label Content="Customers" FontSize="40" FontWeight="Bold"></Label>
+               
+                <Grid Grid.Row="2" ColumnDefinitions="Auto,0,110,10,200,*,Auto,Auto" >
+                    <Label Grid.Column="0" Content="Search by customer's: " ></Label>
+                        
+                    <ComboBox Grid.Column="2" Width="110" ItemsSource="{Binding SearchCriteriaOptions}" 
+                              SelectedItem="{Binding SelectedSearchCriteria, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></ComboBox>
+                    <TextBox Grid.Column="4"  Text="{Binding SearchText, Mode=TwoWay}" ></TextBox>
+                        
+                    <CheckBox Grid.Column="6"  IsChecked="{Binding ShowActiveOnly}"></CheckBox>
+                    <Label Grid.Column="7" Content="Active only"></Label>
+                </Grid>
+                
+                <dg:DataGrid x:Name="CustomersGrid" CanUserResizeColumns="True"  IsReadOnly="True" ColumnWidth="216" Grid.Row="5"
+                          Background="#d0c0ac" Foreground="Black" 
+                          HorizontalGridLinesBrush="#302d28" VerticalGridLinesBrush="#302d28" GridLinesVisibility="All" FontWeight="Bold" 
+                           AutoGenerateColumns="False" ItemsSource="{Binding Customers}" 
+                          SelectionMode="Single" SelectionChanged="CustomersGrid_SelectionChanged">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Customer ID" 
+                                            Binding="{Binding CustomerId}"></DataGridTextColumn>
+                        <DataGridTextColumn Header="Name" 
+                                            Binding="{Binding Name}"></DataGridTextColumn>
+                        <DataGridTextColumn Header="Contact Info" 
+                                            Binding="{Binding ContactInfo}"></DataGridTextColumn>
+                        <DataGridTextColumn Header="Membership Date" 
+                                            Binding="{Binding MembershipDate}"></DataGridTextColumn>
+                        <DataGridTextColumn Header="Active Borrowings" 
+                                            Binding="{Binding ActiveBorrowings}"></DataGridTextColumn>
+                        <DataGridTemplateColumn Header=" ">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button  
+                                        Width="100" 
+                                        Content="Select"
+                                        HorizontalAlignment="Center"
+                                        Height="32" FontSize="15" FontWeight="Light"
+                                        Click="Button_OnClick"></Button>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+                </dg:DataGrid>
+                <Grid Grid.Row="7" ColumnDefinitions="200,*,Auto,10,auto,10,Auto">
+                    <Button Content="View Borrowings" x:Name="BorrowingsButton" Width="200"
+                            IsVisible="False" Click="BorrowingsButton_OnClick"
+                           ></Button>
+
+                    <Button Grid.Column="2" Content="Add"></Button>
+                    <Button Grid.Column="4" Content="Edit" x:Name="EditButton"
+                            IsVisible="False"></Button>
+                    <Button Grid.Column="6" Content="Delete" x:Name="DeleteButton"
+                            IsVisible="False"></Button>
+                </Grid>
+            </Grid>
+        </Border>
+    </Grid>
     
 </UserControl>

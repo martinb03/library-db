@@ -3,7 +3,9 @@ using Avalonia;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Markup.Xaml;
 using LIbraryUI.Data;
+
 using LIbraryUI.ViewModels;
+using LIbraryUI.Views;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -25,6 +27,7 @@ public partial class App : Application
         var connectionString = Environment.GetEnvironmentVariable("LIBRARY_DB_CONN")
                                ?? throw new InvalidOperationException("Missing LIBRARY_DB_CONN env var");
         serviceCollection.AddDbContext<LibraryContext>(opts => opts.UseNpgsql(connectionString));
+
         
         
         serviceCollection.AddSingleton<MainViewModel>();
@@ -34,6 +37,11 @@ public partial class App : Application
         serviceCollection.AddTransient<BorrowingsPageViewModel>();
         serviceCollection.AddTransient<StaffPageViewModel>();
         
+        serviceCollection.AddTransient<MainView>();
+        serviceCollection.AddTransient<BooksPageView>();
+        serviceCollection.AddTransient<CustomersPageView>();
+        serviceCollection.AddTransient<BorrowingsPageView>();
+        serviceCollection.AddTransient<StaffPageView>();
         
         var serviceProvider = serviceCollection.BuildServiceProvider();
         

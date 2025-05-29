@@ -11,11 +11,14 @@
         x:DataType="vm:MainViewModel"
         Title="LibraryUI">
     
+    
+    
     <Design.DataContext><vm:MainViewModel></vm:MainViewModel></Design.DataContext>
     
     <Grid Background="{DynamicResource PrimaryBackground}" ColumnDefinitions="280, *">
         
-        <ContentControl Grid.Column="1" Content="{Binding CurrentPage}"></ContentControl>
+        
+        <ContentControl Grid.Column="1" Content="{Binding CurrentPage}"/>
         
         <Border Padding="20" Background="{DynamicResource PrimaryBackgroundGradient}">
                 <Grid RowDefinitions="Auto,100,Auto,*,Auto">

@@ -1,8 +1,10 @@
-﻿using CommunityToolkit.Mvvm.ComponentModel;
+﻿using System.Reactive;
+using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using LIbraryUI.Data;
 using LIbraryUI.Views;
 using Microsoft.Extensions.DependencyInjection;
+using ReactiveUI;
 
 namespace LIbraryUI.ViewModels;
 
@@ -22,10 +24,31 @@ public partial class MainViewModel : ViewModelsBase
     public bool BooksPageIsActive => CurrentPage.PageName == ApplicationPageNames.Books;
     public bool StaffPageIsActive => CurrentPage.PageName == ApplicationPageNames.Staff;
     
+    //public CustomersPageViewModel CustomersVM { get; }
+    //public ReactiveCommand<Unit, Unit> GoToCustomersBorrowings { get; }
     
-    public MainViewModel()
+    
+    public MainViewModel(CustomersPageViewModel customersVM)
     {
+        //CustomersVM = customersVM;
         CurrentPage = App.ServiceProvider.GetRequiredService<CustomersPageViewModel>();;
+        /*GoToCustomersBorrowings = ReactiveCommand.Create(() =>
+        {
+            var cust = CustomersVM.SelectedCustomer;
+            if (cust == null)
+                return;
+
+            // 2) resolve a fresh BorrowingsPageViewModel
+            var borrowVm = App.ServiceProvider
+                .GetRequiredService<BorrowingsPageViewModel>();
+
+            // 3) pass the parameters
+            borrowVm.CustomerName       = cust.Name;
+            borrowVm.SelectedCustomerId = cust.CustomerId!.Value;
+
+            // 4) swap it in
+            CurrentPage = borrowVm;
+        });*/
     }
 
     [RelayCommand]
@@ -45,7 +68,6 @@ public partial class MainViewModel : ViewModelsBase
     {
         CurrentPage = App.ServiceProvider.GetRequiredService<CustomersPageViewModel>();
     }
-    
     
     [RelayCommand]
     private void GoToStaff()

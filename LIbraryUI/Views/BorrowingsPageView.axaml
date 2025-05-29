@@ -19,7 +19,7 @@
                 <Label Content="Borrowings" FontSize="40" FontWeight="Bold"></Label>
                 <Grid Grid.Row="2" ColumnDefinitions="Auto,10,Auto">
                     <Label FontSize="20" Content="Customer:" ></Label>
-                    <TextBlock  Grid.Column="2" FontSize="25" FontWeight="Bold" Text="{Binding CustomerName}"></TextBlock>
+                    <TextBlock  Grid.Column="2" FontSize="25" Foreground="Black" FontWeight="Bold" Text="{Binding CustomerName}"></TextBlock>
                 </Grid>
                
                 
@@ -29,10 +29,10 @@
                               SelectedItem="{Binding SelectedSearchCriteria, Mode=TwoWay}"></ComboBox>
                     <TextBox Grid.Column="4"  Text="{Binding SearchText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBox>
                         
-                    <CheckBox Grid.Column="6"  BorderBrush="Black" IsChecked="{Binding ShowActiveOnly, Mode=TwoWay}"></CheckBox>
+                    <CheckBox Grid.Column="6" Foreground="Black" IsChecked="{Binding ShowActiveOnly, Mode=TwoWay}"></CheckBox>
                     <Label Grid.Column="7" Content="Active only "></Label>
                         
-                    <CheckBox Grid.Column="9" BorderBrush="Black"  IsChecked="{Binding ShowOverdueOnly}"></CheckBox>
+                    <CheckBox Grid.Column="9"   IsChecked="{Binding ShowOverdueOnly}"></CheckBox>
                     <Label Grid.Column="10"  Content="Overdue"></Label>
                 </Grid>
                 

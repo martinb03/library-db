@@ -15,27 +15,29 @@ public partial class BorrowingsPageViewModel : PageViewModel
     private readonly LibraryContext _context;
 
     public ObservableCollection<ViewCustomerBorrowing> Borrowings { get; } = new();
-
-    public BorrowingsPageViewModel() 
-    { 
-        CustomerName = "Not Selected"; 
-        
-    }
     
     public BorrowingsPageViewModel(LibraryContext context)
     {
+        
         PageName = ApplicationPageNames.Borrowings;
+        CustomerName = "Not Selected";
+        
         _context = context;
         _ = LoadBorrowingsAsync();
     }
 
     
 
-    public string CustomerName { get; private set; }
+    
 
     private async Task LoadBorrowingsAsync()
     {
+
         IQueryable<ViewCustomerBorrowing> query = _context.ViewCustomerBorrowings;
+        if (SelectedCustomerId != 0)
+        {
+            query = query.Where(b => b.CustomerId == SelectedCustomerId);
+        }
 
         if (ShowActiveOnly)
         {
@@ -63,7 +65,7 @@ public partial class BorrowingsPageViewModel : PageViewModel
             }
         }
         
-         var list = await query.ToListAsync();
+        var list = await query.ToListAsync();
         
          Borrowings.Clear();
          foreach (var borrowing in list)
@@ -128,6 +130,33 @@ public partial class BorrowingsPageViewModel : PageViewModel
             if (_showOverdueOnly == value) return;
             _showOverdueOnly = value;
             OnPropertyChanged(nameof(ShowOverdueOnly));
+            _ = LoadBorrowingsAsync();
+        }
+    }
+
+    
+    private string _customerName;
+    public string CustomerName
+    {
+        get => _customerName;
+        set
+        {
+            if (_customerName == value) return;
+            _customerName = value;
+            OnPropertyChanged(nameof(CustomerName));
+        }
+    }
+    
+    private int _selectedCustomerId;
+    public int SelectedCustomerId
+    {
+        get => _selectedCustomerId;
+        set
+        {
+            if (_selectedCustomerId == value) return;
+            _selectedCustomerId = value;
+            OnPropertyChanged(nameof(SelectedCustomerId));
+            
             _ = LoadBorrowingsAsync();
         }
     }

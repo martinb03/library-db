@@ -2,6 +2,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              x:Class="LIbraryUI.App"
              xmlns:local="clr-namespace:LIbraryUI"
+             xmlns:vm="clr-namespace:LIbraryUI.ViewModels"
+             xmlns:view="clr-namespace:LIbraryUI.Views"
              RequestedThemeVariant="Default">
              <!-- "Default" ThemeVariant follows system theme variant. "Dark" or "Light" are other available options. -->
 
