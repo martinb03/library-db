@@ -9,6 +9,7 @@ using Avalonia.Controls;
 using Avalonia.Interactivity;
 using LIbraryUI.Data;
 using LIbraryUI.Data.Models;
+using LIbraryUI.Factories;
 using Microsoft.EntityFrameworkCore;
 using ReactiveUI;
 
@@ -112,6 +113,8 @@ public class CustomersPageViewModel : PageViewModel
         => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
     
     private ViewCustomer? _selectedCustomer;
+    
+
     public ViewCustomer? SelectedCustomer
     {
         get => _selectedCustomer;

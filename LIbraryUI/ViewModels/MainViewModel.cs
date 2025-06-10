@@ -2,6 +2,7 @@
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using LIbraryUI.Data;
+using LIbraryUI.Factories;
 using LIbraryUI.Views;
 using Microsoft.Extensions.DependencyInjection;
 using ReactiveUI;
@@ -10,6 +11,7 @@ namespace LIbraryUI.ViewModels;
 
 public partial class MainViewModel : ViewModelsBase
 {
+    private PageFactory _pageFactory;
     private const string buttonActiveClass = "active";
     
     [ObservableProperty]
@@ -28,50 +30,22 @@ public partial class MainViewModel : ViewModelsBase
     //public ReactiveCommand<Unit, Unit> GoToCustomersBorrowings { get; }
     
     
-    public MainViewModel(CustomersPageViewModel customersVM)
+    public MainViewModel(PageFactory pageFactory)
     {
-        //CustomersVM = customersVM;
-        CurrentPage = App.ServiceProvider.GetRequiredService<CustomersPageViewModel>();;
-        /*GoToCustomersBorrowings = ReactiveCommand.Create(() =>
-        {
-            var cust = CustomersVM.SelectedCustomer;
-            if (cust == null)
-                return;
-
-            // 2) resolve a fresh BorrowingsPageViewModel
-            var borrowVm = App.ServiceProvider
-                .GetRequiredService<BorrowingsPageViewModel>();
-
-            // 3) pass the parameters
-            borrowVm.CustomerName       = cust.Name;
-            borrowVm.SelectedCustomerId = cust.CustomerId!.Value;
-
-            // 4) swap it in
-            CurrentPage = borrowVm;
-        });*/
+        _pageFactory = pageFactory;
+        GoToCustomers();
     }
 
     [RelayCommand]
-    private void GoToBooks()
-    {
-        CurrentPage = App.ServiceProvider.GetRequiredService<BooksPageViewModel>();
-    }
+    private void GoToCustomers() => CurrentPage = _pageFactory.GetPageViewModel<CustomersPageViewModel>();
+
+    [RelayCommand]
+    private void GoToBorrowings() => CurrentPage = _pageFactory.GetPageViewModel<BorrowingsPageViewModel>
+        (afterCreation => afterCreation.CustomerName="Selected Customer");
     
     [RelayCommand]
-    private void GoToBorrowings()
-    {
-        CurrentPage = App.ServiceProvider.GetRequiredService<BorrowingsPageViewModel>();
-    }
+    private void GoToBooks() => CurrentPage = _pageFactory.GetPageViewModel<BooksPageViewModel>();
     
     [RelayCommand]
-    private void GoToCustomers()
-    {
-        CurrentPage = App.ServiceProvider.GetRequiredService<CustomersPageViewModel>();
-    }
-    
-    [RelayCommand]
-    private void GoToStaff()
-    {
-        CurrentPage = App.ServiceProvider.GetRequiredService<StaffPageViewModel>();
-    }
+    private void GoToStaff() => CurrentPage = _pageFactory.GetPageViewModel<StaffPageViewModel>();
 }

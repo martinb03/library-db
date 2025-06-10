@@ -3,7 +3,7 @@ using Avalonia;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Markup.Xaml;
 using LIbraryUI.Data;
-
+using LIbraryUI.Factories;
 using LIbraryUI.ViewModels;
 using LIbraryUI.Views;
 using Microsoft.EntityFrameworkCore;
@@ -42,6 +42,16 @@ public partial class App : Application
         serviceCollection.AddTransient<CustomersPageView>();
         serviceCollection.AddTransient<BorrowingsPageView>();
         serviceCollection.AddTransient<StaffPageView>();
+        
+        serviceCollection.AddSingleton<Func<Type, PageViewModel>>(x => type => type switch
+        {
+            _ when type == typeof(CustomersPageViewModel) => x.GetRequiredService<CustomersPageViewModel>(),
+            _ when type == typeof(BorrowingsPageViewModel) => x.GetRequiredService<BorrowingsPageViewModel>(),
+            _ when type == typeof(BooksPageViewModel) => x.GetRequiredService<BooksPageViewModel>(),
+            _ when type == typeof(StaffPageViewModel) => x.GetRequiredService<StaffPageViewModel>(),
+            _ => throw new InvalidOperationException(),
+        });
+        serviceCollection.AddSingleton<PageFactory>();
         
         var serviceProvider = serviceCollection.BuildServiceProvider();
         
